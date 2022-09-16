@@ -1,0 +1,40 @@
+{
+"variables": {
+"instance_size": "t2.micro",
+Wordpress",
+"base_ami": "ami-0a1f9af47750fac27",
+"ssh_username": "ubuntu",
+"vpc_id": "vpc-0b5a55e3a55a43b0c",
+"subnet_id": "subnet-037ec4b1226e14a71",
+"access_key": "AKIAQXM743WSUOX2Q7GL",
+"secret_key": "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",
+"region": "us-east-2"
+},
+"builders": [
+{
+"type": "amazon-ebs",
+"region": "us-east-1",
+"source_ami": "{{user `base_ami`}}",
+"instance_type": "{{user `instance_size`}}",
+"ssh_username": "{{user `ssh_username`}}",
+"ssh_timeout": "20m",
+"ami_name": "{{user `ami_name`}}",
+"ssh_pty" : "true",
+"vpc_id": "{{user `vpc_id`}}",
+"subnet_id": "{{user `subnet_id`}}",
+"tags": {
+"Name": "Wordpress-Chirag",
+"BuiltBy": "Packer"
+}
+}
+],
+"description": "AWS image",
+"provisioners": [
+  {
+  "type": "shell",
+  "script": "script.sh",
+  "pause_before": "10s",
+  "timeout": "10s"
+}
+]
+}
