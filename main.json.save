@@ -6,8 +6,6 @@ Wordpress",
 "ssh_username": "ubuntu",
 "vpc_id": "vpc-0b5a55e3a55a43b0c",
 "subnet_id": "subnet-037ec4b1226e14a71",
-"access_key": "AKIAQXM743WSUOX2Q7GL",
-"secret_key": "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",
 "region": "us-east-2"
 },
 "builders": [
